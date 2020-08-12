@@ -2,22 +2,45 @@ import React from 'react';
 
 class PhoneForm extends React.Component{
     state = {
-        name : ''
+        name : '',
+        phone : ''
     }
     handleChange = (e) => {
         this.setState({
-            name : e.target.value
+            [e.target.name] : e.target.value
+        });
+    }
+    handleSubmit = (e) => {
+        //prevent Page Reload
+        e.preventDefault();
+        // State to Parent / Through onCreate
+        this.props.onCreate(this.state);
+        // State return
+        this.setState({
+            name : '',
+            phone : ''
         })
     }
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input
                     placeholder="이름"
                     value={this.state.name}
+                    // value를 설정한 이유는 초기화시 반영을 위함.
                     onChange={this.handleChange}
+                    name="name"
                 />
-                <div> {this.state.name} </div>
+                <input
+                    placeholder="전화번호"
+                    value={this.state.phone}
+                    // value를 설정한 이유는 초기화시 반영을 위함.
+                    onChange={this.handleChange}
+                    name="phone"
+                />
+                <button type="submit">등록</button>
+                <div> {this.state.name} {this.state.phone} </div>
             </form>
         )
     }
