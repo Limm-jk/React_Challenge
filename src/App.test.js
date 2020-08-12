@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './PhoneApp';
+import App from './2_Phone/PhoneApp';
 
 test('renders learn react link', () => {
   const { getByText } = render(<App />);
