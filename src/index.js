@@ -6,8 +6,8 @@ import Count from './Count';
 // 최초의 React App
 ReactDOM.render(
   <React.StrictMode>
-    {/* <App name="Limm_jk"/> */}
-    <Count />
+    <App/>
+    {/* <Count /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
